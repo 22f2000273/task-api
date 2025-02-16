@@ -67,14 +67,20 @@ async def read(path: str):
             raise Exception(f"Cannot read {path}")
         return response.text
 
+# Update the URL and local path according to your setup
+url = "https://raw.githubusercontent.com/sanand0/tools-in-data-science-public/refs/heads/tds-2025-01-project-1-wip/project-1/datagen.py"
+local_path = "datagen.py"  # Make sure this matches where your local file is
 
 async def a1(email: str, **kwargs):
+    # Run the script with the correct URL
     await run(
         f"""
-Install `uv` (if required) and run the script `https://raw.githubusercontent.com/sanand0/tools-in-data-science-public/tds-2025-01/datagen.py`
+Install `uv` (if required) and run the script `{url}`
 with `{email}` as the only argument
 """
     )
+    
+    # Check if the email is in the contents of the markdown file
     return email in await read("/data/format.md")
 
 
