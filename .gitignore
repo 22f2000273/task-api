@@ -4,11 +4,4 @@ __pycache__
 myenv/
 .env
 .venv/
-myenv/  # Ignores the entire virtual environment directory
-myenv/lib/python3.12/site-packages/pyarrow/libarrow.so.1900
-myenv/lib/python3.12/site-packages/lance/lance.abi3.so
-myenv/lib/python3.12/site-packages/pyarrow/*.so # Ignore all .so in pyarrow
-myenv/lib/python3.12/site-packages/lance/*.so # Ignore all .so in lance
-
-__pycache__/  # Ignores Python bytecode cache directories
-*.pyc       # Ignores compiled Python files (.pyc) - usually covered by __pycache__
+env/
