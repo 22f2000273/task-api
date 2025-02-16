@@ -27,6 +27,11 @@ import os
 import re
 import httpx
 import json
+import sys
+sys.path.append("/app")
+from tasksA import *
+from tasksB import *
+from fastapi import FastAPI, HTTPException, Query
 
 app = FastAPI()
 
@@ -496,6 +501,9 @@ async def read_file(path: str = Query(..., description="File path to read")):
         raise HTTPException(status_code=404, detail="File not found")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+@app.get("/")
+def home():
+    return {"message": "Welcome to the Task "}
 
 if __name__ == "__main__":
     import uvicorn
